@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      th:with="lang=${#locale.language},country=${#locale.country}"
+      th:lang="${lang}">
+<head>
+<!-- favico -->
+<link rel="shortcut icon" type="image/x-icon" th:href="@{/icon/favicon.ico}" />
+<!-- favico -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+<title>[[#{jstoMng}]]</title>
+<!-- css -->
+<link th:href="|@{/adminlte/css/fontawesome.all.min.css}?${resver}|" rel="stylesheet" type="text/css"/>
+<link th:href="|@{/adminlte/css/icheck-bootstrap.min.css}?${resver}|" rel="stylesheet" type="text/css"/>
+<link th:href="|@{/adminlte/css/adminlte.min.css}?${resver}|" rel="stylesheet" type="text/css"/>
+<!-- /css -->
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="https://levias.co.jp/"><b>[[#{companyName}]]</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">[[#{jstoMng}]]</p>
+
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" th:placeholder="#{loginId}" maxlength="20" id="login_id">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-envelope"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" th:placeholder="#{password}" maxlength="20" id="login_pwd">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-8">
+          <div class="icheck-primary">
+            <input type="checkbox" id="rem_login_sts" value="1">
+            <label for="rem_login_sts">
+              [[#{remLoginSts}]]
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-4">
+          <button type="submit" class="btn btn-primary btn-block" id="btnLogin">[[#{login}]]</button>
+        </div>
+        <!-- /.col -->
+      </div>
+
+      <div class="social-auth-links text-center mb-3">
+      </div>
+      <!-- /.social-auth-links -->
+
+
+
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+
+<form id="login_form" th:action="@{/authLogin}" method="post" onsubmit="return false;">
+    <input type="hidden" id="hdn_login_id"  name="loginId" />
+    <input type="hidden" id="hdn_login_pwd" name="password" />
+    <input type="hidden" id="hdn_rem_login_sts" name="rem_login_sts" />
+</form>
+<input type="hidden" id="hdbOpenMenu" th:value="@{${T(jp.co.jsto.web.config.MappingMaster).OPEN_MENU}}">
+
+<!-- js -->
+<script type="text/javascript" th:src="|@{/js/lib/jquery.min.js}?${resver}|"></script>
+<script type="text/javascript" th:src="|@{/js/lib/sha256.js?}?${resver}|"></script>
+<script type="text/javascript" th:src="|@{/js/fw/common.js}?${resver}|"></script>
+<script type="text/javascript" th:src="|@{/js/auth/login.js}?${resver}|"></script>
+<!-- /js -->
+</body>
+</html>

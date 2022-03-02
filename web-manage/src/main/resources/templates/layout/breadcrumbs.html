@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  th:with="lang=${#locale.language},country=${#locale.country}"
+  th:lang="${lang}">
+
+<!-- Content Header (Page header) -->
+<div class="content-header" th:fragment="breadcrumbs">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <h1 class="m-0 text-dark" th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).DASHBOARD.getValue())}">[[#{dashboard}]]</h1>
+
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).NOTICE_MNG.getValue())}">[[#{userMng}]] > [[#{noticeMng}]]</h1>
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).REF_USER_INFO.getValue())}">[[#{userMng}]] > [[#{refUserInfo}]]</h1>
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).FRIEND_MNG.getValue())}">[[#{userMng}]] > [[#{friendMng}]]</h1>
+
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).TOKEN_MASTER_MNG.getValue())}">[[#{tokenMasterMng}]] > [[#{tokenMasterMng}]]</h1>
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).PRIM_PROD_MNG.getValue())}">[[#{tokenMasterMng}]] > [[#{primProdMng}]]</h1>
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).ELEC_CONT_DOC_MNG.getValue())}">[[#{tokenMasterMng}]] > [[#{elecContDocMng}]]</h1>
+
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).TOKEN_ISSUE_MNG.getValue())}">[[#{tokenIssueMng}]] > [[#{tokenIssueMng}]]</h1>
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).TOKEN_DISTR_MNG.getValue())}">[[#{tokenIssueMng}]] > [[#{tokenDistrMng}]]</h1>
+
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).TRADE_APP_MNG.getValue())}">[[#{tradeMng}]] > [[#{tradeAppMng}]]</h1>
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).MEDI_TRADE_MATCH.getValue())}">[[#{tradeMng}]] > [[#{mediTradeMatch}]]</h1>
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).TRADE_MNG.getValue())}">[[#{tradeMng}]] > [[#{tradeMng}]]</h1>
+
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).ST_TRANSFER_HIST.getValue())}">[[#{blockchainMng}]] > [[#{stTransferHist}]]</h1>
+        <h1 class="m-0 text-dark"  th:if="${@webLogic.isSubMenu(funcSubId,T(jp.co.jsto.code.FunctionSubId).ST_OWNED_LIST.getValue())}">[[#{blockchainMng}]] > [[#{stOwnedList}]]</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->

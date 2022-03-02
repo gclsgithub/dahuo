@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:with="lang=${#locale.language},country=${#locale.country}"
+      th:lang="${lang}">
+    <div th:fragment="timeexport">
+        <div class="modal fade" id="timeModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="width: 1202px;">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel"><span></span></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>合計時間:<span class="navbar-danger" id="allTime"></span></h3>
+                        <table border="none">
+                            <thead>
+                            <tr>
+                                <th>件名</th>
+                                <th>ラベルタイプ</th>
+                                <th>ファイルタイプ</th>
+                                <th>解決時間</th>
+                                <th>接続時間</th>
+                                <th>反応時間</th>
+                                <th>ファイルサイズ</th>
+                                <th>開始時間</th>
+                                <th>終了時間</th>
+                                <th>時間がかかる</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="button" class="btn btn-warning" id="confirm_delete">[[#{confirm}]]</button>
+                        <button type="button" class="btn btn-default"  data-dismiss="modal">[[#{cancel}]]</button>
+                    </div>
+                    <div class="hidden" >
+                        <form id="delete_notice_form" th:action="@{/deleteNotice}">
+                            <input type="hidden" id="delete_noticeId" name="noticeId" >
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>

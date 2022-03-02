@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  layout:decorate="~{layout/base_template}">
+
+<head>
+<title>権限エラー</title>
+</head>
+<body>
+    <th:block layout:fragment="menu" th:replace="layout/menu :: menu(funcId=${funcId},funcSubId=${funcSubId})"></th:block>
+
+    <th:block layout:fragment="breadcrumbs" th:replace="layout/breadcrumbs :: breadcrumbs(funcId=${funcId},funcSubId=${funcSubId})"></th:block>
+
+    <th:block layout:fragment="content">
+        <!-- タイトル -->
+        <section id="sn">
+            <div class="inner u-fs25 btm20" style="color:red;">
+                <h2>この画面の操作権限がありません</h2>
+            </div>
+        </section>
+
+        <section id="ttl" class="u-fs25" style="text-align: center;">
+            <a th:href="${#authentication.principal.homeUrl}">ダッシュボードへ</a>
+        </section>
+    </th:block>
+</body>
+</html>

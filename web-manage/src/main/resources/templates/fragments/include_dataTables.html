@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    th:with="lang=${#locale.language},country=${#locale.country}"
+    th:lang="${lang}">
+
+<th:block th:fragment="dataTables">
+  <link th:href="|@{/dataTables/css/dataTables.bootstrap4.css}?${resver}|" rel="stylesheet" type="text/css"/>
+  <link th:href="|@{/dataTables/css/fixedColumns.bootstrap4.css}?${resver}|" rel="stylesheet" type="text/css"/>
+
+  <script th:src="|@{/dataTables/js/jquery.dataTables.min.js}?${resver}|" type="text/javascript"></script>
+  <script th:src="|@{/dataTables/js/dataTables.fixedColumns.js}?${resver}|"type="text/javascript"></script>
+  <script th:src="|@{/dataTables/js/ColReorderWithResize.js}?${resver}|"type="text/javascript"></script>
+  <script type="text/javascript" th:inline="javascript">
+      var pageStr_10 = [[#{pageLength(10)}]];
+      var pageStr_25 = [[#{pageLength(25)}]];
+      var pageStr_50 = [[#{pageLength(50)}]];
+      var pageStr_all = [[#{all}]];
+      var language_noData = [[#{noData}]];
+      var language_info = [[#{languageInfo}]];
+      var language_infoEmpty = [[#{languageInfoEmpty}]];
+      var paginate_first = [[#{first}]];
+      var paginate_previous = [[#{previous}]];
+      var paginate_next = [[#{next}]];
+      var paginate_last = [[#{last}]];
+  </script>
+  <script th:src="|@{/dataTables/js/dataTables.bootstrap4.js}?${resver}|"type="text/javascript"></script>
+
+</th:block>

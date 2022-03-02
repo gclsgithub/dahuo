@@ -1,0 +1,112 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:with="lang=${#locale.language},country=${#locale.country}"
+      th:lang="${lang}">
+<head>
+<!-- favico -->
+<link rel="shortcut icon" type="image/x-icon" th:href="@{/icon/favicon.ico}" />
+<!-- favico -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+<title>[[#{forcePasswordChange}]]</title>
+<!-- css -->
+<link th:href="|@{/bootstrap/css/bootstrap.min.css}?${resver}|" rel="stylesheet" type="text/css" />
+<link th:href="|@{/css/styles.css}?${resver}|" rel="stylesheet" type="text/css" />
+<!-- /css -->
+</head>
+<body>
+  <div class="header">
+    <div class="container col-md-6 col-md-offset-3">
+      <div class="row">
+        <div class="col-md-9">
+           <!-- Logo -->
+           <div class="logo">
+              <h1><a th:href="${#authentication.principal.homeUrl}"><img th:src="@{/img/header.png}" th:alt="#{jstoMng}"/></a></h1>
+           </div>
+        </div>
+        <div class="col-md-3">
+           <div class="row">
+             <div class="col-lg-12">
+               <div class="input-group form">
+                    <span class="input-group-btn">
+                      <button class="btn btn-pink pull-right" onclick="formLogout.submit();">[[#{logout}]]</button>
+                    </span>
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+    <form th:action="@{/logout}" name="formLogout" method="POST"></form>
+    <input type="hidden" id="headerUserId" th:value="${#authentication.principal.username}">
+  </div>
+
+  <div class="page-content">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+         <div class="row">
+           <div class="col-md-12">
+             <div class="content-box-large panel-info">
+               <div class="content-box-header panel-heading text-center">
+                 <div class="panel-title col-md-12"><h3>[[#{forcePasswordChange}]]</h3></div>
+                 <div class="panel-options">
+                 </div>
+               </div>
+
+               <div class="panel-body">
+                 <div id="err_common" class="mb-10 panel-danger text-left" style="display: none;"></div>
+
+                 <form class="form-horizontal" role="form" id="login_form" th:action="@{${T(jp.co.jsto.web.config.MappingMaster).DO_CHANGE_PWD}}" onsubmit="return false;">
+                   <div class="form-group">
+                     <label for="currentPassword" class="col-sm-6 h5">[[#{currentPassword}]]</label>
+                     <div class="col-sm-6">
+                       <input type="password" class="form-control" id="passWord">
+                       <input type="hidden" id="currentPassword" name="currentPassword">
+                     </div>
+                   </div>
+                   <div class="form-group">
+                     <label for="newPassword" class="col-sm-6 h5">[[#{newPassword}]]</label>
+                     <div class="col-sm-6">
+                       <input type="password" class="form-control" id="newPassword" name="newPassword" >
+                     </div>
+                   </div>
+                   <div class="form-group">
+                     <label class="col-sm-12 h5">
+                       <span class="note h5"><strong>※1</strong> [[#{changePasswordNote1}]]</span>
+                     </label>
+                     <label class="col-sm-12 h5">
+                       <span class="note h5"><strong>※2</strong> [[#{changePasswordNote2}]]</span>
+                     </label>
+                   </div>
+                   <div class="form-group">
+                     <label for="newPasswordConfirm" class="col-sm-6 h5">[[#{newPasswordConfirm}]]</label>
+                     <div class="col-sm-6">
+                       <input type="password" class="form-control" id="newPasswordConfirm" name="newPasswordConfirm" >
+                     </div>
+                   </div>
+                   <div class="form-group">
+                     <div class="col-sm-offset-5 col-sm-7">
+                       <button class="btn btn-primary mw-100" id="btnChange" >[[#{change}]]</button>
+                     </div>
+                   </div>
+                 </form>
+                 <input type="hidden" id="homeLink" th:value="${#authentication.principal.homeUrl}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--/* JS */-->
+  <script type="text/javascript" th:src="|@{/js/lib/jquery.min.js}?${resver}|"></script>
+  <script type="text/javascript" th:src="|@{/js/lib/sha256.js?}?${resver}|"></script>
+  <script type="text/javascript" th:src="|@{/js/fw/common.js}?${resver}|"></script>
+  <script type="text/javascript" th:src="|@{/js/settings/forceChangePwd.js}?${resver}|"></script>
+</body>
+</html>

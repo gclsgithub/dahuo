@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  layout:decorate="~{layout/base_template}">
+
+<head>
+<title>ダッシュボード</title>
+</head>
+<body>
+
+  <th:block layout:fragment="menu" th:replace="layout/menu :: menu(funcId=${form.funcId()},funcSubId=${form.funcSubId()})"></th:block>
+
+  <th:block layout:fragment="breadcrumbs" th:replace="layout/breadcrumbs :: breadcrumbs(funcId=${form.funcId()},funcSubId=${form.funcSubId()})"></th:block>
+
+  <th:block layout:fragment="content">
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-header border-0">
+                <h3 class="card-title">取引業務 未処理一覧</h3>
+              </div>
+              <div class="card-body" th:if="${@webLogic.isBusiness()}">
+                <table class="table table-sm table-bordered table-valign-middle text-center">
+                  <thead>
+                    <tr>
+                      <th>取引ステータス</th>
+                      <th>未処理件数</th>
+                      <th class="bg-lightblue">業務処理</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>売買申請承認待ち</td>
+                      <td>10件</td>
+                      <td><button type="button" class="btn btn-warning btn-xs col-md-8">売買申請承認</button></td>
+                    </tr>
+                    <tr>
+                      <td>KYC承認待ち</td>
+                      <td>10件</td>
+                      <td><button type="button" class="btn btn-warning btn-xs col-md-8">KYC承認</button></td>
+                    </tr>
+                    <tr>
+                      <td>取引承認待ち</td>
+                      <td>10件</td>
+                      <td><button type="button" class="btn btn-warning btn-xs col-md-8">取引承認</button></td>
+                    </tr>
+                    <tr>
+                      <td>契約書発行待ち</td>
+                      <td>10件</td>
+                      <td><button type="button" class="btn btn-warning btn-xs col-md-8">契約書発行</button></td>
+                    </tr>
+                    <tr>
+                      <td>契約内容承認待ち</td>
+                      <td>10件</td>
+                      <td><button type="button" class="btn btn-warning btn-xs col-md-8">契約内容承認</button></td>
+                    </tr>
+                    <tr>
+                      <td>決済承認待ち</td>
+                      <td>10件</td>
+                      <td><button type="button" class="btn btn-warning btn-xs col-md-8">決済承認</button></td>
+                    </tr>
+                    <tr>
+                      <td>約定登録待ち</td>
+                      <td>10件</td>
+                      <td><button type="button" class="btn btn-warning btn-xs col-md-8">約定登録</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-body" th:if="${@webLogic.isMediator()}">
+                <table class="table table-sm table-bordered table-valign-middle text-center">
+                  <thead>
+                    <tr>
+                      <th>取引ステータス</th>
+                      <th>未処理件数</th>
+                      <th class="bg-lightblue">業務処理</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>媒介取引マッチング待ち</td>
+                      <td>10件</td>
+                      <td><button type="button" class="btn btn-warning btn-xs col-md-8">売買申請承認</button></td>
+                    </tr>
+                    <tr>
+                      <td>KYC承認待ち</td>
+                      <td>10件</td>
+                      <td><button type="button" class="btn btn-warning btn-xs col-md-8">KYC承認</button></td>
+                    </tr>
+                    <tr>
+                      <td>契約書発行待ち</td>
+                      <td>10件</td>
+                      <td><button type="button" class="btn btn-warning btn-xs col-md-8">契約書発行</button></td>
+                    </tr>
+                    <tr>
+                      <td>契約内容承認待ち</td>
+                      <td>10件</td>
+                      <td><button type="button" class="btn btn-warning btn-xs col-md-8">契約内容承認</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+  </th:block>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    th:with="lang=${#locale.language},country=${#locale.country}"
+    th:lang="${lang}">
+
+<footer class="main-footer" th:fragment="footer">
+  <strong>[(#{copyright})]</strong>
+  <div class="float-right d-none d-sm-inline-block">
+    <b></b>
+  </div>
+</footer>

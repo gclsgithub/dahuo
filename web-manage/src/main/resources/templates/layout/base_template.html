@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  th:with="lang=${#locale.language},country=${#locale.country}"
+  th:lang="${lang}">
+<head>
+<!-- favico -->
+<link rel="shortcut icon" type="image/x-icon" th:href="@{/icon/favicon.ico}" />
+<!-- favico -->
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
+<title layout:title-pattern="$LAYOUT_TITLE | $CONTENT_TITLE">[[#{jstoMng}]]</title>
+
+<!-- css -->
+<link th:href="|@{/adminlte/css/fontawesome.all.min.css}?${resver}|" rel="stylesheet" type="text/css"/>
+<link th:href="|@{/adminlte/css/icheck-bootstrap.min.css}?${resver}|" rel="stylesheet" type="text/css"/>
+<link th:href="|@{/adminlte/css/adminlte.min.css}?${resver}|" rel="stylesheet" type="text/css"/>
+<link th:href="|@{/adminlte/css/overlay-scrollbars.min.css}?${resver}|" rel="stylesheet" type="text/css"/>
+<!-- js -->
+
+<script type="text/javascript" th:src="|@{/js/lib/jquery.min.js}?${resver}|"></script>
+<script type="text/javascript" th:src="|@{/adminlte/js/bootstrap.bundle.min.js}?${resver}|"></script>
+<script type="text/javascript" th:src="|@{/js/fw/common.js}?${resver}|"></script>
+<script type="text/javascript" th:src="|@{/js/fw/menu.js}?${resver}|"></script>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+  <!-- header -->
+  <div th:replace="layout/header::header"></div>
+  <!-- /header -->
+
+  <div layout:fragment="menu" th:remove="tag"></div>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div layout:fragment="breadcrumbs" th:remove="tag"></div>
+
+    <div layout:fragment="content" th:remove="tag"></div>
+  </div>
+  <!-- /main -->
+
+  <!-- footer -->
+  <div th:replace="layout/footer :: footer"></div>
+  <!-- /footer -->
+</div>
+
+<script type="text/javascript" th:src="|@{/adminlte/js/jquery.overlay-scrollbars.min.js}?${resver}|"></script>
+<script type="text/javascript" th:src="|@{/adminlte/js/adminlte.min.js}?${resver}|"></script>
+</body>
+</html>
