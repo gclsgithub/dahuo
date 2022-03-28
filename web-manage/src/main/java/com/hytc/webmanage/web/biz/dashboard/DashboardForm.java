@@ -1,8 +1,9 @@
 package com.hytc.webmanage.web.biz.dashboard;
 
-import jp.co.gt.fw.web.biz.FwBaseForm;
-import jp.co.jsto.code.FunctionId;
-import jp.co.jsto.code.FunctionSubId;
+
+import com.hytc.webmanage.common.config.FunctionId;
+import com.hytc.webmanage.common.config.FunctionSubId;
+import com.hytc.webmanage.common.web.FwBaseForm;
 
 @lombok.Getter
 @lombok.Setter

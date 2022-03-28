@@ -2,13 +2,13 @@ package com.hytc.webmanage.web.ajax;
 
 import javax.servlet.http.HttpSession;
 
+import com.hytc.webmanage.web.common.WebConstants;
+import com.hytc.webmanage.web.config.MappingMaster;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import jp.co.jsto.web.common.WebConstants;
-import jp.co.jsto.web.config.MappingMaster;
 
 @Controller
 public class MenuController {

@@ -4,12 +4,12 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Locale;
 
+import com.hytc.webmanage.common.LangCd;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-import jp.co.jsto.code.LangCd;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2

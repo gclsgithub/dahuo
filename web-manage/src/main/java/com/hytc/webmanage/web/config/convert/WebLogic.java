@@ -7,16 +7,17 @@ import java.util.Base64;
 
 import javax.servlet.http.HttpSession;
 
+import com.hytc.webmanage.common.CodeEnum;
+import com.hytc.webmanage.common.FwUserDetails;
+import com.hytc.webmanage.common.io.BranchCd;
+import com.hytc.webmanage.common.resolve.FwMessageResolve;
+import com.hytc.webmanage.web.common.WebConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import jp.co.gt.fw.code.base.CodeEnum;
-import jp.co.gt.fw.common.message.FwMessageResolve;
-import jp.co.jsto.auth.bean.FwUserDetails;
-import jp.co.jsto.code.BranchCd;
-import jp.co.jsto.web.common.WebConstants;
+
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2

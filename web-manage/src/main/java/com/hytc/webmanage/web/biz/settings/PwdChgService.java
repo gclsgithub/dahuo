@@ -1,13 +1,12 @@
 package com.hytc.webmanage.web.biz.settings;
 
+import com.hytc.webmanage.common.FwUserDetails;
+import com.hytc.webmanage.common.entity.pwdchg.UserPwdChgIn;
+import com.hytc.webmanage.common.entity.pwdchg.UserPwdChgOut;
+import com.hytc.webmanage.common.exception.FwWebBusinessException;
 import org.springframework.stereotype.Service;
 
-import jp.co.gt.fw.common.exception.FwWebBusinessException;
-import jp.co.gt.fw.common.graphql.CallGraphqlApi;
-import jp.co.jsto.auth.bean.FwUserDetails;
-import jp.co.jsto.biz.GraphqlReqName;
-import jp.co.jsto.biz.pwdchg.UserPwdChgIn;
-import jp.co.jsto.biz.pwdchg.UserPwdChgOut;
+
 import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
@@ -16,7 +15,7 @@ import java.math.BigDecimal;
 @RequiredArgsConstructor()
 public class PwdChgService {
 
-    final private CallGraphqlApi callGraphql;
+//    final private CallGraphqlApi callGraphql;
 
     public UserPwdChgOut doChangePassword(final PwdChgForm form, FwUserDetails userDetails) {
         UserPwdChgIn in = new UserPwdChgIn();
@@ -34,7 +33,8 @@ public class PwdChgService {
         ;
 
         // パスワード変更ロジック呼び出し
-        UserPwdChgOut out = callGraphql.doMutation(GraphqlReqName.USER_PWD_CHANGE, in, UserPwdChgOut.class);
+//        UserPwdChgOut out = callGraphql.doMutation(GraphqlReqName.USER_PWD_CHANGE, in, UserPwdChgOut.class);
+        UserPwdChgOut out = new UserPwdChgOut();
         if (UserPwdChgOut.isNotOK(out)) {
             throw new FwWebBusinessException(out);
         }

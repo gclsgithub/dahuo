@@ -1,6 +1,6 @@
 package com.hytc.webmanage.web.common;
 
-import jp.co.gt.fw.common.message.IErrors;
+import com.hytc.webmanage.common.web.IErrors;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

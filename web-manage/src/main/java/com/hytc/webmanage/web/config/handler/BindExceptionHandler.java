@@ -5,6 +5,14 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.hytc.webmanage.common.FwUserDetails;
+import com.hytc.webmanage.common.exception.FwWebBusinessException;
+import com.hytc.webmanage.common.io.FwBaseOut;
+import com.hytc.webmanage.common.resolve.FwMessageResolve;
+import com.hytc.webmanage.common.resolve.ResultMessages;
+import com.hytc.webmanage.common.web.FwBaseForm;
+import com.hytc.webmanage.web.common.WebConstants;
+import com.hytc.webmanage.web.config.MappingMaster;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -20,14 +28,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import jp.co.gt.fw.common.exception.FwWebBusinessException;
-import jp.co.gt.fw.common.io.FwBaseOut;
-import jp.co.gt.fw.common.message.FwMessageResolve;
-import jp.co.gt.fw.common.message.ResultMessage;
-import jp.co.gt.fw.web.biz.FwBaseForm;
-import jp.co.jsto.auth.bean.FwUserDetails;
-import jp.co.jsto.web.common.WebConstants;
-import jp.co.jsto.web.config.MappingMaster;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -64,7 +64,7 @@ public class BindExceptionHandler {
 
     private void bindError(FwBaseOut out, BindingResult bindingResult) {
         for (FieldError error : bindingResult.getFieldErrors()) {
-            out.getErrors().add(ResultMessage.fromText(messageResolve.resolveMessage(error.getDefaultMessage(), error.getField(), error.getRejectedValue())));
+            out.getErrors().add(ResultMessages.fromText(messageResolve.resolveMessage(error.getDefaultMessage(), error.getField(), error.getRejectedValue())));
         }
     }
 
@@ -100,7 +100,7 @@ public class BindExceptionHandler {
         }
         response.setHeader(WebConstants.ERROR, WebConstants.ERROR_YES);
         response.setHeader(WebConstants.ERROR_TYPE, WebConstants.ERROR_JSON);
-        FwBaseOut out = FwBaseOut.ng(new ResultMessage("ERR_0023", null, messageResolve.resolveMessage("accessDenied")));
+        FwBaseOut out = FwBaseOut.ng(new ResultMessages("ERR_0023", null, messageResolve.resolveMessage("accessDenied")));
         return out;
     }
 
@@ -123,7 +123,7 @@ public class BindExceptionHandler {
         response.setHeader(WebConstants.ERROR_TYPE, WebConstants.ERROR_JSON);
         // 予期せぬエラーです。
         String errorCd = "E_BL_9000";
-        FwBaseOut out = FwBaseOut.ng(new ResultMessage(errorCd, null, messageResolve.resolveMessage(errorCd)));
+        FwBaseOut out = FwBaseOut.ng(new ResultMessages(errorCd, null, messageResolve.resolveMessage(errorCd)));
         return out;
     }
 }

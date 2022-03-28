@@ -3,6 +3,7 @@ package com.hytc.webmanage.web.config.aop;
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
+import com.hytc.webmanage.web.config.handler.ErrorResponse;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -13,7 +14,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
-import jp.co.jsto.web.config.handler.ErrorResponse;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2

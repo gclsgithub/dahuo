@@ -1,6 +1,7 @@
 package com.hytc.webmanage.web.config;
 
-import jp.co.gt.fw.web.SessionKey;
+
+import com.hytc.webmanage.common.web.SessionKey;
 
 public enum SessionKeyMaster implements SessionKey {
 

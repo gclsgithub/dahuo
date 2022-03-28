@@ -2,7 +2,6 @@ package com.hytc.webmanage.web.biz.dashboard;
 
 import org.springframework.stereotype.Service;
 
-import jp.co.gt.fw.common.rest.CallRestApi;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -11,7 +10,7 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 public class DashboardService {
 
-    private final CallRestApi callLogic;
+//    private final CallRestApi callLogic;
 
 //    public TopInfoOut getMemberTopData(TopInfoIn oIn) {
 //        log.debug("getMemberTopData {}", oIn);

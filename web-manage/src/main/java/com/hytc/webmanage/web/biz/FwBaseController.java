@@ -6,10 +6,11 @@ import java.nio.charset.StandardCharsets;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.hytc.webmanage.web.common.WebConstants;
+import com.hytc.webmanage.web.views.FileDownloadView;
 import org.springframework.ui.Model;
 
-import jp.co.jsto.web.common.WebConstants;
-import jp.co.jsto.web.views.FileDownloadView;
+
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2

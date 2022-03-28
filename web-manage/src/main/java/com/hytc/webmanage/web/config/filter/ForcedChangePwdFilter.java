@@ -8,11 +8,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.hytc.webmanage.common.web.SessionManager;
+import com.hytc.webmanage.web.config.MappingMaster;
+import com.hytc.webmanage.web.config.SessionKeyMaster;
 import org.springframework.security.web.DefaultRedirectStrategy;
 
-import jp.co.gt.fw.web.SessionManager;
-import jp.co.jsto.web.config.MappingMaster;
-import jp.co.jsto.web.config.SessionKeyMaster;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2

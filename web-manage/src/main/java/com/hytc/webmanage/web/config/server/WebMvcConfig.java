@@ -2,6 +2,7 @@ package com.hytc.webmanage.web.config.server;
 
 import java.util.Locale;
 
+import com.hytc.webmanage.web.config.i18n.FwMessageSource;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +14,6 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
-
-import jp.co.jsto.web.config.i18n.FwMessageSource;
 
 
 @Configuration
@@ -39,13 +38,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public MessageSource messageSource() {
         return new FwMessageSource();
     }
-
-    @Bean
-    public LocalValidatorFactoryBean getValidator() {
-        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
-        bean.setValidationMessageSource(messageSource());
-        return bean;
-    }
+//
+//    @Bean
+//    public LocalValidatorFactoryBean getValidator() {
+//        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+//        bean.setValidationMessageSource(messageSource());
+//        return bean;
+//    }
 
     @Bean
     public LocaleResolver localeResolver() {

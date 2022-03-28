@@ -1,10 +1,11 @@
 package com.hytc.webmanage.web.common;
 
+import com.hytc.webmanage.web.biz.dashboard.DashboardForm;
+import com.hytc.webmanage.web.config.MappingMaster;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import jp.co.jsto.web.biz.dashboard.DashboardForm;
-import jp.co.jsto.web.config.MappingMaster;
 
 public class WebConstants {
 
