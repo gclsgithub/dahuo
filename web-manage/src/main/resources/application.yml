@@ -4,3 +4,12 @@ spring:
     username: admin
     password: dahuo123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+application:
+  home:
+    url: /dashboard
+  logic:
+    companyCd: 101
+    url: http://127.0.0.1:8080/jsto-logic/graphql
+
+

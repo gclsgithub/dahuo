@@ -135,6 +135,10 @@ public class ResultMessages implements Serializable {
 
     }
 
+    public static ResultMessages error() {
+        return new ResultMessages(null, EMPTY_ARRAY,null);
+    }
+
     /**
      * returns code.
      * @return code (<code>null</code> if message have a text)
@@ -227,5 +231,13 @@ public class ResultMessages implements Serializable {
     @Override
     public String toString() {
         return "ResultMessage [code=" + code + ", args=" + Arrays.toString(args) + ", text=" + text + "]";
+    }
+
+    public ResultMessages add(ResultMessages error) {
+        return error;
+    }
+
+    public ResultMessages add(IErrors<?> iError, Object[] args) {
+        return new ResultMessages();
     }
 }

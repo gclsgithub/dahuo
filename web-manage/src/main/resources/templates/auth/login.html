@@ -65,9 +65,6 @@
       <div class="social-auth-links text-center mb-3">
       </div>
       <!-- /.social-auth-links -->
-
-
-
     </div>
     <!-- /.login-card-body -->
   </div>
@@ -79,7 +76,7 @@
     <input type="hidden" id="hdn_login_pwd" name="password" />
     <input type="hidden" id="hdn_rem_login_sts" name="rem_login_sts" />
 </form>
-<input type="hidden" id="hdbOpenMenu" th:value="@{${T(jp.co.jsto.web.config.MappingMaster).OPEN_MENU}}">
+<input type="hidden" id="hdbOpenMenu" value="/openMenu">
 
 <!-- js -->
 <script type="text/javascript" th:src="|@{/js/lib/jquery.min.js}?${resver}|"></script>
